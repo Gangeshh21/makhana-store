@@ -1,0 +1,70 @@
+services:
+
+  postgres:
+    image: postgres:18-alpine
+    container_name: makhana-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_USER: makhana_user
+      POSTGRES_PASSWORD: makhana_password
+      POSTGRES_DB: makhana_db
+
+    ports:
+      - "5433:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U makhana_user -d makhana_db"
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+
+  backend:
+    build:
+      context: ./backend
+
+    container_name: makhana-backend
+    restart: unless-stopped
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+    environment:
+      DB_USER: makhana_user
+      DB_HOST: postgres
+      DB_NAME: makhana_db
+      DB_PASSWORD: makhana_password
+      DB_PORT: 5432
+      PORT: 5050
+      JWT_SECRET: makhana_docker_jwt_secret_change_later
+
+    ports:
+      - "5051:5050"
+
+
+  frontend:
+    build:
+      context: .
+
+    container_name: makhana-frontend
+    restart: unless-stopped
+
+    depends_on:
+      - backend
+
+    ports:
+      - "5173:80"
+
+
+volumes:
+  postgres_data:
