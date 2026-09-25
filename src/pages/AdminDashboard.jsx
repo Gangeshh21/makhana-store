@@ -48,7 +48,7 @@ function AdminDashboard() {
   const loadDashboard = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5051/api/admin/dashboard",
+        "${import.meta.env.VITE_API_URL}/api/admin/dashboard",
         {
           headers: {
             Authorization:
@@ -81,7 +81,7 @@ function AdminDashboard() {
   const loadProducts = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5051/api/admin/products",
+        "${import.meta.env.VITE_API_URL}/api/admin/products",
         {
           headers: {
             Authorization:
@@ -112,7 +112,7 @@ function AdminDashboard() {
   const loadUsers = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5051/api/admin/users",
+        "${import.meta.env.VITE_API_URL}/api/admin/users",
         {
           headers: {
             Authorization:
@@ -143,7 +143,7 @@ function AdminDashboard() {
   const loadOrders = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5051/api/admin/orders",
+        "${import.meta.env.VITE_API_URL}/api/admin/orders",
         {
           headers: {
             Authorization:
@@ -176,7 +176,7 @@ function AdminDashboard() {
       try {
         const response =
           await fetch(
-            `http://localhost:5051/api/admin/orders/${orderId}/items`,
+            `${import.meta.env.VITE_API_URL}/api/admin/orders/${orderId}/items`,
             {
               headers: {
                 Authorization:
@@ -217,7 +217,7 @@ function AdminDashboard() {
       try {
         const response =
           await fetch(
-            `http://localhost:5051/api/admin/orders/${orderId}/status`,
+            `${import.meta.env.VITE_API_URL}/api/admin/orders/${orderId}/status`,
             {
               method: "PUT",
 
@@ -289,8 +289,8 @@ function AdminDashboard() {
       try {
         const url =
           editingProduct
-            ? `http://localhost:5051/api/admin/products/${editingProduct.id}`
-            : "http://localhost:5051/api/admin/products";
+            ? `${import.meta.env.VITE_API_URL}/api/admin/products/${editingProduct.id}`
+            : "${import.meta.env.VITE_API_URL}/api/admin/products";
 
         const method =
           editingProduct
@@ -403,7 +403,7 @@ function AdminDashboard() {
       try {
         const response =
           await fetch(
-            `http://localhost:5051/api/admin/products/${id}`,
+            `${import.meta.env.VITE_API_URL}/api/admin/products/${id}`,
             {
               method: "DELETE",
 

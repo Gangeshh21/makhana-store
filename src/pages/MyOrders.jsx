@@ -25,7 +25,7 @@ function MyOrders() {
     try {
       const response =
         await fetch(
-          "http://localhost:5051/api/orders/my-orders",
+          "${import.meta.env.VITE_API_URL}/api/orders/my-orders",
           {
             headers: {
               Authorization:
@@ -72,7 +72,7 @@ function MyOrders() {
     try {
       const response =
         await fetch(
-          `http://localhost:5051/api/orders/my-orders/${orderId}`,
+          `${import.meta.env.VITE_API_URL}/api/orders/my-orders/${orderId}`,
           {
             headers: {
               Authorization:

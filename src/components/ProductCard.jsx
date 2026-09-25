@@ -10,7 +10,7 @@ function ProductCard({ product, setCart }) {
 
     try {
       const response = await fetch(
-        "http://localhost:5051/api/cart",
+        "${import.meta.env.VITE_API_URL}/api/cart",
         {
           method: "POST",
           headers: {
@@ -35,7 +35,7 @@ function ProductCard({ product, setCart }) {
 
       // Reload complete cart from database
       const cartResponse = await fetch(
-        "http://localhost:5051/api/cart",
+        "${import.meta.env.VITE_API_URL}/api/cart",
         {
           headers: {
             Authorization: `Bearer ${token}`,

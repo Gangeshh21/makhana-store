@@ -20,7 +20,7 @@ function Cart({ cart, setCart }) {
 
     try {
       const response = await fetch(
-        "http://localhost:5051/api/cart",
+  "http://13.53.176.17:5051/api/cart",
         {
           method: "GET",
           headers: {
@@ -32,10 +32,7 @@ function Cart({ cart, setCart }) {
       const data = await response.json();
 
       if (!response.ok) {
-        console.error(
-          "Cart API error:",
-          data
-        );
+        console.error("Cart API error:", data);
 
         alert(
           data.message ||
@@ -46,7 +43,6 @@ function Cart({ cart, setCart }) {
       }
 
       setCart(data);
-
     } catch (error) {
       console.error(
         "Cart loading error:",
@@ -56,7 +52,6 @@ function Cart({ cart, setCart }) {
       alert(
         "Failed to connect to server"
       );
-
     } finally {
       setLoading(false);
     }
@@ -84,7 +79,7 @@ function Cart({ cart, setCart }) {
 
     try {
       const response = await fetch(
-        `http://localhost:5051/api/cart/${cartItemId}`,
+  `http://13.53.176.17:5051/api/cart/${cartItemId}`,
         {
           method: "PUT",
 
@@ -143,7 +138,7 @@ function Cart({ cart, setCart }) {
   ) => {
     try {
       const response = await fetch(
-        `http://localhost:5051/api/cart/${cartItemId}`,
+  `http://13.53.176.17:5051/api/cart/${cartItemId}`,
         {
           method: "DELETE",
 
