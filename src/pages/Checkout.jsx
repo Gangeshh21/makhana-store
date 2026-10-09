@@ -75,7 +75,7 @@ function Checkout({ cart, setCart }) {
 
     try {
       const response = await fetch(
-        "${import.meta.env.VITE_API_URL}/api/orders",
+        "/api/orders",
         {
           method: "POST",
 

@@ -10,8 +10,7 @@ services:
       POSTGRES_PASSWORD: makhana_password
       POSTGRES_DB: makhana_db
 
-    ports:
-      - "5433:5432"
+
 
     volumes:
       - postgres_data:/var/lib/postgresql
@@ -48,8 +47,6 @@ services:
       PORT: 5050
       JWT_SECRET: makhana_docker_jwt_secret_change_later
 
-    ports:
-      - "5051:5050"
 
 
   frontend:
@@ -63,7 +60,7 @@ services:
       - backend
 
     ports:
-      - "5173:80"
+      - "80:80"
 
 
 volumes:

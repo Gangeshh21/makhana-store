@@ -20,7 +20,7 @@ function Cart({ cart, setCart }) {
 
     try {
       const response = await fetch(
-  "http://13.53.176.17:5051/api/cart",
+  "/api/cart",
         {
           method: "GET",
           headers: {
@@ -79,7 +79,7 @@ function Cart({ cart, setCart }) {
 
     try {
       const response = await fetch(
-  `http://13.53.176.17:5051/api/cart/${cartItemId}`,
+        `/api/cart/${cartItemId}`,
         {
           method: "PUT",
 
@@ -138,7 +138,7 @@ function Cart({ cart, setCart }) {
   ) => {
     try {
       const response = await fetch(
-  `http://13.53.176.17:5051/api/cart/${cartItemId}`,
+  `/api/cart/${cartItemId}`,
         {
           method: "DELETE",
 

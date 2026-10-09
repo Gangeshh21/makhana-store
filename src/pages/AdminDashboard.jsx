@@ -48,7 +48,7 @@ function AdminDashboard() {
   const loadDashboard = async () => {
     try {
       const response = await fetch(
-        "${import.meta.env.VITE_API_URL}/api/admin/dashboard",
+        "/api/admin/dashboard",
         {
           headers: {
             Authorization:
@@ -81,7 +81,7 @@ function AdminDashboard() {
   const loadProducts = async () => {
     try {
       const response = await fetch(
-        "${import.meta.env.VITE_API_URL}/api/admin/products",
+        "/api/admin/products",
         {
           headers: {
             Authorization:
@@ -112,7 +112,7 @@ function AdminDashboard() {
   const loadUsers = async () => {
     try {
       const response = await fetch(
-        "${import.meta.env.VITE_API_URL}/api/admin/users",
+        "/api/admin/users",
         {
           headers: {
             Authorization:
@@ -143,7 +143,7 @@ function AdminDashboard() {
   const loadOrders = async () => {
     try {
       const response = await fetch(
-        "${import.meta.env.VITE_API_URL}/api/admin/orders",
+        "/api/admin/orders",
         {
           headers: {
             Authorization:
@@ -176,7 +176,7 @@ function AdminDashboard() {
       try {
         const response =
           await fetch(
-            `${import.meta.env.VITE_API_URL}/api/admin/orders/${orderId}/items`,
+            `/api/admin/orders/${orderId}/items`,
             {
               headers: {
                 Authorization:
@@ -217,7 +217,7 @@ function AdminDashboard() {
       try {
         const response =
           await fetch(
-            `${import.meta.env.VITE_API_URL}/api/admin/orders/${orderId}/status`,
+            `/api/admin/orders/${orderId}/status`,
             {
               method: "PUT",
 
@@ -289,8 +289,8 @@ function AdminDashboard() {
       try {
         const url =
           editingProduct
-            ? `${import.meta.env.VITE_API_URL}/api/admin/products/${editingProduct.id}`
-            : "${import.meta.env.VITE_API_URL}/api/admin/products";
+             ? `/api/admin/products/${editingProduct.id}`
+            : "/api/admin/products";
 
         const method =
           editingProduct
@@ -403,7 +403,7 @@ function AdminDashboard() {
       try {
         const response =
           await fetch(
-            `${import.meta.env.VITE_API_URL}/api/admin/products/${id}`,
+            `/api/admin/products/${id}`,
             {
               method: "DELETE",
 

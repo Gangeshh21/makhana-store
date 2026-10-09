@@ -5,7 +5,7 @@ function ProductSection({ setCart }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("${import.meta.env.VITE_API_URL}/api/products")
+    fetch("/api/products")
       .then((response) => response.json())
       .then((data) => {
         console.log("Products received:", data);
